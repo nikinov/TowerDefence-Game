@@ -15,7 +15,7 @@ public class ZSpawner : MonoBehaviour
     private void Start()
     {
         bounds = gameObject.GetComponent<BoxCollider2D>().bounds;
-        //InvokeRepeating("Spawn", 1f, spawnRate);
+        InvokeRepeating("Spawn", 1f, spawnRate);
     }
 
     public void Spawn()

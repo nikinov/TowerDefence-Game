@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     public GameObject TurretCloseButton;
     GameObject[] Enemy;
     public ZSpawner spawner;
+    public GameObject Spawnerr;
+    public GameObject Nightt;
 
     bool Day;
 
@@ -36,6 +38,8 @@ public class GameManager : MonoBehaviour
         TurretStore.SetActive(false);
         TurretCloseButton.SetActive(false);
         StartCoroutine(SetDay());
+        Spawnerr.SetActive(false);
+
     }
     private void Update()
     {
@@ -46,6 +50,14 @@ public class GameManager : MonoBehaviour
             EnLeft += 1;
         }
         Spawn2();
+        if (Day)
+        {
+            Nightt.SetActive(false);
+        }
+        if (!Day)
+        {
+            Nightt.SetActive(true);
+        }
     }
     public void SetNight ()
     {
@@ -182,7 +194,7 @@ public class GameManager : MonoBehaviour
     {
         if (EnLeft == 0)
         {
-            Day = true;
+            //Day = true;
         }
     }
     IEnumerator SetDay()
@@ -191,12 +203,15 @@ public class GameManager : MonoBehaviour
         night = 1;
         yield return new WaitForSeconds(5);
         Day = false;
-        spawner.Spawn();
+        Spawnerr.SetActive(true);
         yield return new WaitForEndOfFrame();
         Day = false;
         yield return new WaitForSeconds((2^night + 1) * 10);
+        Spawnerr.SetActive(false);
+
         if (Day)
         {
+
             StartCoroutine(SetDay());
         }
     }
