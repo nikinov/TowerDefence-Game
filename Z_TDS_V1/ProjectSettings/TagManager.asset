@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - GameManager
+  - Store
+  - TurretStore
+  - NotEnoughCash
+  - PauseMenu
   layers:
   - Default
   - TransparentFX
