@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
     public GameObject Spawnerr;
     public GameObject Nightt;
 
+    private BuildSystem buildSystem;
+    [SerializeField] private GameObject wall;
+
     bool Day;
 
     private void Start()
@@ -37,10 +40,12 @@ public class GameManager : MonoBehaviour
         PauseMenu.SetActive(false);
         TurretStore.SetActive(false);
         TurretCloseButton.SetActive(false);
+		buildSystem = GetComponent<BuildSystem>();
         StartCoroutine(SetDay());
         Spawnerr.SetActive(false);
 
     }
+
     private void Update()
     {
         Enemy = GameObject.FindGameObjectsWithTag("Enemy");
@@ -99,6 +104,7 @@ public class GameManager : MonoBehaviour
         if (Material - 10 >= 0)
         {
             Material -= 10;
+            buildSystem.Select(Instantiate(wall));
         }
         else
         {
@@ -183,6 +189,8 @@ public class GameManager : MonoBehaviour
         if (Material - 10 >= 0)
         {
             Material -= 10;
+            Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            buildSystem.Select(Instantiate(wall,pos,Quaternion.identity));
         }
         else
         {
