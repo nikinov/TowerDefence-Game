@@ -1654,7 +1654,7 @@ MonoBehaviour:
   spawner: {fileID: 4998873}
   Spawnerr: {fileID: 4998872}
   Nightt: {fileID: 1259678841}
-  wall: {fileID: 420518763}
+  wall: {fileID: 3725867472618585467, guid: c51d44a3ff2c64a4489123f8bc305247, type: 3}
 --- !u!4 &742791916
 Transform:
   m_ObjectHideFlags: 0
