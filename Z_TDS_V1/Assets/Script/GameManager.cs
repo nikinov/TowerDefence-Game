@@ -43,7 +43,6 @@ public class GameManager : MonoBehaviour
 		buildSystem = GetComponent<BuildSystem>();
         StartCoroutine(SetDay());
         Spawnerr.SetActive(false);
-
     }
 
     private void Update()
@@ -211,15 +210,16 @@ public class GameManager : MonoBehaviour
         night = 1;
         yield return new WaitForSeconds(5);
         Day = false;
-        Spawnerr.SetActive(true);
+        spawner.Go = false;
+        Spawnerr.SetActive(false);
         yield return new WaitForEndOfFrame();
         Day = false;
         yield return new WaitForSeconds((2^night + 1) * 10);
-        Spawnerr.SetActive(false);
+        spawner.Go = true;
+        Spawnerr.SetActive(true);
 
         if (Day)
         {
-
             StartCoroutine(SetDay());
         }
     }

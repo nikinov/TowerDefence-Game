@@ -7,6 +7,8 @@ public class ZSpawner : MonoBehaviour
 {
     public float spawnRate;
 
+    public bool Go;
+
     [SerializeField] private GameObject zombieIns;
     [SerializeField] private Transform targetTransform;
 
@@ -14,8 +16,12 @@ public class ZSpawner : MonoBehaviour
 
     private void Start()
     {
+        Go = false;
         bounds = gameObject.GetComponent<BoxCollider2D>().bounds;
-        InvokeRepeating("Spawn", 1f, spawnRate);
+        if (Go == true)
+        {
+            InvokeRepeating("Spawn", 1f, spawnRate);
+        }
     }
 
     public void Spawn()
