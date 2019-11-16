@@ -53,5 +53,9 @@ public class Zombie : MonoBehaviour
             Destroy(gameObject);
             gameManager.addMat();
         }
+        if (col.gameObject.tag == "Player")
+        {
+            gameManager.TakePlayerHelth();
+        }
     }
 }

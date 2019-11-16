@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     int PlayerHelth;
     public int ZombieStartWithHelth;
     int Zombies;
-    int NumOfZombInNight;
     int EnLeft;
 
     GameObject Store;
@@ -17,25 +16,32 @@ public class GameManager : MonoBehaviour
     GameObject NotEnoughCash;
     GameObject PauseMenu;
     GameObject gamePanel;
+    GameObject player;
     public GameObject TurretOpenButton;
     public GameObject TurretCloseButton;
     GameObject[] Enemy;
     public ZSpawner spawner;
     public GameObject Spawnerr;
     public GameObject Nightt;
+    GameObject DethPanel;
 
     private BuildSystem buildSystem;
     [SerializeField] private GameObject wall;
+    [SerializeField] private GameObject trap;
 
     bool Day;
 
     private void Start()
     {
-        Material = 30;
+        PlayerHelth = 10;
+        Material = 70;
         Store = GameObject.FindGameObjectWithTag("Store");
         TurretStore = GameObject.FindGameObjectWithTag("TurretStore");
         NotEnoughCash = GameObject.FindGameObjectWithTag("NotEnoughCash");
         PauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
+        player = GameObject.FindGameObjectWithTag("Player");
+        DethPanel = GameObject.FindGameObjectWithTag("DethPanel");
+
         NotEnoughCash.SetActive(false);
         PauseMenu.SetActive(false);
         TurretStore.SetActive(false);
@@ -43,6 +49,7 @@ public class GameManager : MonoBehaviour
 		buildSystem = GetComponent<BuildSystem>();
         StartCoroutine(SetDay());
         Spawnerr.SetActive(false);
+        DethPanel.SetActive(false);
     }
 
     private void Update()
@@ -53,7 +60,6 @@ public class GameManager : MonoBehaviour
             EnLeft = 0;
             EnLeft += 1;
         }
-        Spawn2();
         if (Day)
         {
             Nightt.SetActive(false);
@@ -69,7 +75,20 @@ public class GameManager : MonoBehaviour
     }
     public void addMat()
     {
-        
+        Material += 1;
+    }
+    public void  TakePlayerHelth ()
+    {
+        if (PlayerHelth > 0)
+        {
+            PlayerHelth -= 1;
+        }
+        else
+        {
+            DethPanel.SetActive(true);
+            Destroy(player);
+            Time.timeScale = 0f;
+        }
     }
     public void PressOK ()
     {
@@ -103,7 +122,6 @@ public class GameManager : MonoBehaviour
         if (Material - 10 >= 0)
         {
             Material -= 10;
-            buildSystem.Select(Instantiate(wall));
         }
         else
         {
@@ -176,6 +194,7 @@ public class GameManager : MonoBehaviour
         if (Material - 50 >= 0)
         {
             Material -= 50;
+            buildSystem.Select(Instantiate(trap));
         }
         else
         {
@@ -201,7 +220,7 @@ public class GameManager : MonoBehaviour
     {
         if (EnLeft == 0)
         {
-            //Day = true;
+            Day = true;
         }
     }
     IEnumerator SetDay()
@@ -214,6 +233,7 @@ public class GameManager : MonoBehaviour
         Spawnerr.SetActive(false);
         yield return new WaitForEndOfFrame();
         Day = false;
+        Spawn2();
         yield return new WaitForSeconds((2^night + 1) * 10);
         spawner.Go = true;
         Spawnerr.SetActive(true);

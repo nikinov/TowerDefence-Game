@@ -10,6 +10,7 @@ TagManager:
   - NotEnoughCash
   - PauseMenu
   - Enemy
+  - DethPanel
   layers:
   - Default
   - TransparentFX
