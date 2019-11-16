@@ -9,6 +9,7 @@ TagManager:
   - TurretStore
   - NotEnoughCash
   - PauseMenu
+  - Enemy
   layers:
   - Default
   - TransparentFX

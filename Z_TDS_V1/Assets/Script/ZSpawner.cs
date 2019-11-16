@@ -15,10 +15,10 @@ public class ZSpawner : MonoBehaviour
     private void Start()
     {
         bounds = gameObject.GetComponent<BoxCollider2D>().bounds;
-        InvokeRepeating("Spawn", 1f, spawnRate);
+        //InvokeRepeating("Spawn", 1f, spawnRate);
     }
 
-    private void Spawn()
+    public void Spawn()
     {
         GameObject en = Instantiate(zombieIns,randPos(),Quaternion.identity) as GameObject;
         en.GetComponent<AIDestinationSetter>().target = targetTransform;
