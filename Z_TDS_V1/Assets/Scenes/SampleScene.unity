@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f57a9f6d47e1944bbb539677d614eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 3
+  spawnRate: 50
   zombieIns: {fileID: 1606437541109629260, guid: fac3be0a5ecf2164cbe352dfa890c115,
     type: 3}
   targetTransform: {fileID: 831021704}
@@ -1631,7 +1631,7 @@ GameObject:
   - component: {fileID: 742791915}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1648,8 +1648,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ece8a9a3ed3f45f3a577f3f920c8fb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ZombieStartWithHelth: 0
   TurretOpenButton: {fileID: 9182833265877835655}
   TurretCloseButton: {fileID: 394029426}
+  spawner: {fileID: 4998873}
 --- !u!4 &742791916
 Transform:
   m_ObjectHideFlags: 0
@@ -3287,6 +3289,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1606437541109629260, guid: fac3be0a5ecf2164cbe352dfa890c115,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 1606437541109629249, guid: fac3be0a5ecf2164cbe352dfa890c115,
         type: 3}

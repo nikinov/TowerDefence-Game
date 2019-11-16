@@ -7,8 +7,10 @@ public class GameManager : MonoBehaviour
     int Material;
     int night;
     int PlayerHelth;
-    int ZombieStartWithHelth;
+    public int ZombieStartWithHelth;
     int Zombies;
+    int NumOfZombInNight;
+    int EnLeft;
 
     GameObject Store;
     GameObject TurretStore;
@@ -17,6 +19,8 @@ public class GameManager : MonoBehaviour
     GameObject gamePanel;
     public GameObject TurretOpenButton;
     public GameObject TurretCloseButton;
+    GameObject[] Enemy;
+    public ZSpawner spawner;
 
     private BuildSystem buildSystem;
     [SerializeField] private GameObject wall;
@@ -33,15 +37,28 @@ public class GameManager : MonoBehaviour
         NotEnoughCash.SetActive(false);
         PauseMenu.SetActive(false);
         TurretStore.SetActive(false);
-        night = 1;
         TurretCloseButton.SetActive(false);
-
-        buildSystem = GetComponent<BuildSystem>();
+		buildSystem = GetComponent<BuildSystem>();
+        StartCoroutine(SetDay());
     }
 
+    private void Update()
+    {
+        Enemy = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject en in Enemy)
+        {
+            EnLeft = 0;
+            EnLeft += 1;
+        }
+        Spawn2();
+    }
     public void SetNight ()
     {
-        ZombieStartWithHelth = night;
+        ZombieStartWithHelth = night * 10;
+    }
+    public void addMat()
+    {
+        
     }
     public void PressOK ()
     {
@@ -169,16 +186,26 @@ public class GameManager : MonoBehaviour
             NotEnoughCash.SetActive(true);
         }
     }
-    public void Spawn ()
+    public void Spawn2 ()
     {
-
+        if (EnLeft == 0)
+        {
+            Day = true;
+        }
     }
     IEnumerator SetDay()
     {
         Day = true;
-        night += 1;
-        yield return new WaitForSeconds(60);
+        night = 1;
+        yield return new WaitForSeconds(5);
         Day = false;
-        Spawn();
+        spawner.Spawn();
+        yield return new WaitForEndOfFrame();
+        Day = false;
+        yield return new WaitForSeconds((2^night + 1) * 10);
+        if (Day)
+        {
+            StartCoroutine(SetDay());
+        }
     }
 }
