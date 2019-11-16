@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
     public GameObject TurretOpenButton;
     public GameObject TurretCloseButton;
 
+    private BuildSystem buildSystem;
+    [SerializeField] private GameObject wall;
+
     bool Day;
 
     private void Start()
@@ -32,11 +35,10 @@ public class GameManager : MonoBehaviour
         TurretStore.SetActive(false);
         night = 1;
         TurretCloseButton.SetActive(false);
+
+        buildSystem = GetComponent<BuildSystem>();
     }
-    private void Update()
-    {
-        
-    }
+
     public void SetNight ()
     {
         ZombieStartWithHelth = night;
@@ -73,6 +75,7 @@ public class GameManager : MonoBehaviour
         if (Material - 10 >= 0)
         {
             Material -= 10;
+            buildSystem.Select(Instantiate(wall));
         }
         else
         {
@@ -157,6 +160,8 @@ public class GameManager : MonoBehaviour
         if (Material - 10 >= 0)
         {
             Material -= 10;
+            Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            buildSystem.Select(Instantiate(wall,pos,Quaternion.identity));
         }
         else
         {

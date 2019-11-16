@@ -28,7 +28,6 @@ public class PlayerMovment : MonoBehaviour
     {
 
         Vector2 direction = new Vector2(horAxes, verAxes).normalized;
-        Debug.Log(direction);
         myRb.velocity = direction * speed;
     }
 }
