@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -69,6 +70,7 @@ public class GameManager : MonoBehaviour
             Nightt.SetActive(true);
             spawner.isSpawning = true;
         }
+        SetNight();
     }
     public void SetNight ()
     {
@@ -76,7 +78,24 @@ public class GameManager : MonoBehaviour
     }
     public void addMat()
     {
-        Material += 1;
+        if (night < 4)
+        {
+            Material += 1;
+        }
+        if (night < 10)
+        {
+            if (night >= 4)
+            {
+                Material += 2;
+            }
+        }
+        if (night < 20)
+        {
+            if (night >= 10)
+            {
+                Material += 3;
+            }
+        }
     }
     public void  TakePlayerHelth ()
     {
@@ -240,10 +259,10 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator Check()
     {
-        Spawn2();
         yield return new WaitForSeconds(.1f);
         if (!Day)
         {
+            Spawn2();
             StartCoroutine(Check());
         }
         if (Day)
