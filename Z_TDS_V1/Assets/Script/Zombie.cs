@@ -53,6 +53,10 @@ public class Zombie : MonoBehaviour,IHitable
             Destroy(gameObject);
             gameManager.addMat();
         }
+        if (col.gameObject.tag == "Player")
+        {
+            gameManager.PlayerHelth -= 1;
+        }
     }
 
     public void Hit(float dam)
