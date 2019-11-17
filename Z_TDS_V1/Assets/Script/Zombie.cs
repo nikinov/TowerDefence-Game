@@ -22,7 +22,7 @@ public class Zombie : MonoBehaviour,IHitable
             gameManager.addMat();
         }
     }
-    private void OnCollisionEnter(Collision col)
+    private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "Bullet1")
         {
