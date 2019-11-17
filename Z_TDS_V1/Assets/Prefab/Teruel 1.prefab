@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bf53f8f6b80b7549ac246824b4a1df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletInst: {fileID: 7256619904810710559, guid: efc18858fd1863f46b6f6f14970e907d,
+  bulletInst: {fileID: 7256619904810710559, guid: 03646bcd8ed05455a8aaed33c8302545,
     type: 3}
   head: {fileID: 7231730814970075971}
   firePoint: {fileID: 2396623498780631848}
