@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject trap;
     [SerializeField] private GameObject turet1;
 
+    public Text mat;
+
     public bool Day;
 
     private void Start()
@@ -71,6 +73,7 @@ public class GameManager : MonoBehaviour
             spawner.isSpawning = true;
         }
         SetNight();
+        //mat = Material.ToString("");
     }
     public void SetNight ()
     {
@@ -103,7 +106,7 @@ public class GameManager : MonoBehaviour
         {
             PlayerHelth -= 1;
         }
-        else
+        if (PlayerHelth <= 0)
         {
             DethPanel.SetActive(true);
             Destroy(player);

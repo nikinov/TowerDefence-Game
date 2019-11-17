@@ -31,7 +31,8 @@ public class Zombie : MonoBehaviour,IHitable
         }
         if (col.gameObject.tag == "Player")
         {
-            gameManager.PlayerHelth -= 1;
+            gameManager.TakePlayerHelth();
+            Destroy(gameObject);
         }
     }
 
