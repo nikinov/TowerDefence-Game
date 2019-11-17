@@ -36,7 +36,7 @@ public class TeruelTargetFinder : MonoBehaviour
                 float dst = Vector2.Distance(collider.transform.position, transform.position);
                 if(minDist > dst)
                 {
-                    RaycastHit2D hit = Physics2D.Raycast(transform.position,collider.transform.position - transform.position, dst, obsticleMasks);
+                    RaycastHit2D hit = Physics2D.Raycast(transform.position,(collider.transform.position - transform.position).normalized, dst, obsticleMasks);
                     if (hit)
                     {
                         Debug.Log("hit");

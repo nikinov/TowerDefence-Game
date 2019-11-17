@@ -29,11 +29,13 @@ public class TeruelShooting : MonoBehaviour
 
     private void Shoot()
     {
-        GameObject gameObj = Instantiate(bulletInst, firePoint.position, Quaternion.identity);
+        Vector2 direction = (target.position - firePoint.position).normalized;
+        GameObject gameObj = Instantiate(bulletInst, firePoint.position, Quaternion.Euler(direction * Vector2.up));
         Rigidbody2D bulletRb = gameObj.GetComponent<Rigidbody2D>();
 
-        Vector2 direction = (target.position - firePoint.position).normalized;
-        bulletRb.velocity = direction * 10;
+        
+        bulletRb.velocity = direction * 25;
+        bulletRb.angularVelocity = 10000;
     }
 
     public void SetTarget(Transform transform)
