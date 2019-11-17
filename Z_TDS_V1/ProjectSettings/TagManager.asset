@@ -12,6 +12,7 @@ TagManager:
   - Enemy
   - DethPanel
   - Trap
+  - GamePanel
   layers:
   - Default
   - TransparentFX

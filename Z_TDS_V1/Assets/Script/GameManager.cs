@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         PlayerHelth = 10;
-        Material = 70;
+        Material = 700;
         Store = GameObject.FindGameObjectWithTag("Store");
         TurretStore = GameObject.FindGameObjectWithTag("TurretStore");
         NotEnoughCash = GameObject.FindGameObjectWithTag("NotEnoughCash");
