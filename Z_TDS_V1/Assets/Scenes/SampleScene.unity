@@ -1738,6 +1738,7 @@ MonoBehaviour:
   Nightt: {fileID: 1259678841}
   wall: {fileID: 3725867472618585467, guid: c51d44a3ff2c64a4489123f8bc305247, type: 3}
   trap: {fileID: 6967696803747868454, guid: 95ff60d585d5a4fcd8dc2dd0f8e1d47c, type: 3}
+  turet1: {fileID: 2396623498800155322, guid: 23d0d0fdeafa88f408270d4b176cf6e9, type: 3}
   Day: 0
 --- !u!4 &742791916
 Transform:
@@ -3678,6 +3679,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teruel
       objectReference: {fileID: 0}
+    - target: {fileID: 2396623498800155322, guid: 23d0d0fdeafa88f408270d4b176cf6e9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2396623498800155326, guid: 23d0d0fdeafa88f408270d4b176cf6e9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3733,11 +3739,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2396623498800155325, guid: 23d0d0fdeafa88f408270d4b176cf6e9,
-        type: 3}
-      propertyPath: obsticleMasks.m_Bits
-      value: 257
-      objectReference: {fileID: 0}
     - target: {fileID: 2396623498229944680, guid: 23d0d0fdeafa88f408270d4b176cf6e9,
         type: 3}
       propertyPath: m_Color.r
@@ -3752,6 +3753,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 0.4716981
+      objectReference: {fileID: 0}
+    - target: {fileID: 2396623498800155325, guid: 23d0d0fdeafa88f408270d4b176cf6e9,
+        type: 3}
+      propertyPath: obsticleMasks.m_Bits
+      value: 257
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23d0d0fdeafa88f408270d4b176cf6e9, type: 3}

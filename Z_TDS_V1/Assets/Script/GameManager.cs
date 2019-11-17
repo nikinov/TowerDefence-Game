@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     private BuildSystem buildSystem;
     [SerializeField] private GameObject wall;
     [SerializeField] private GameObject trap;
+    [SerializeField] private GameObject turet1;
 
     public bool Day;
 
@@ -122,6 +123,7 @@ public class GameManager : MonoBehaviour
         if (Material - 10 >= 0)
         {
             Material -= 10;
+            buildSystem.Select(Instantiate(turet1));
         }
         else
         {
@@ -227,11 +229,12 @@ public class GameManager : MonoBehaviour
     {
         Day = true;
         night += 1;
-        spawner.enabled = true;
+        spawner.enabled = false;
         yield return new WaitForSeconds(5);
         Day = false;
+        spawner.enabled = true;
         spawner.isSpawning = true;
-        yield return new WaitForSeconds(20);
+        yield return new WaitForSeconds(night * 20);
         spawner.enabled = false;
         StartCoroutine(Check());
     }
