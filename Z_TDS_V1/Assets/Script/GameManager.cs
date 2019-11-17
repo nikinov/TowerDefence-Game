@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public int ZombieStartWithHelth;
     int Zombies;
     int EnLeft;
+    int Lev;
 
     GameObject Store;
     GameObject TurretStore;
@@ -37,6 +38,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject turet6;
 
     public Text mat;
+    public Text Hel;
     public bool Day;
 
     private void Start()
@@ -57,6 +59,23 @@ public class GameManager : MonoBehaviour
 		buildSystem = GetComponent<BuildSystem>();
         StartCoroutine(SetDay());
         DethPanel.SetActive(false);
+        Lev = PlayerPrefs.GetInt("Level");
+        if (Lev == 1)
+        {
+            spawner.spawnRate = 10;
+        }
+        if (Lev == 2)
+        {
+            spawner.spawnRate = 5;
+        }
+        if (Lev == 3)
+        {
+            spawner.spawnRate = 1;
+        }
+        else
+        {
+            spawner.spawnRate = 1;
+        }
     }
 
     private void Update()
@@ -78,6 +97,7 @@ public class GameManager : MonoBehaviour
         }
         SetNight();
         mat.text = Material.ToString("");
+        Hel.text = PlayerHelth.ToString("");
     }
     public void SetNight ()
     {
