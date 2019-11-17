@@ -7365,6 +7365,7 @@ GameObject:
   - component: {fileID: 742791916}
   - component: {fileID: 742791915}
   - component: {fileID: 742791917}
+  - component: {fileID: 742791918}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -7386,6 +7387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerHelth: 0
   ZombieStartWithHelth: 0
+  Lev: 0
   TurretOpenButton: {fileID: 9182833265877835655}
   TurretCloseButton: {fileID: 394029426}
   spawner: {fileID: 4998873}
@@ -7433,6 +7435,21 @@ MonoBehaviour:
   buildLayer:
     serializedVersion: 2
     m_Bits: 1792
+--- !u!114 &742791918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742791914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5918a849ac0943d8aa057ab1e2be1df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FightUI: {fileID: 1053883753}
+  Levell: 0
+  gameManager: {fileID: 742791915}
 --- !u!1 &754660234
 GameObject:
   m_ObjectHideFlags: 0

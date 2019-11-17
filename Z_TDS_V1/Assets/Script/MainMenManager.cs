@@ -8,15 +8,19 @@ public class MainMenManager : MonoBehaviour
     public GameObject FightUI;
     bool A;
     float timerBecauseACorutineDoesNotWorkHere;
+    public int Levell;
+    public GameManager gameManager;
+
     private void Awake()
     {
         FightUI.SetActive(false);
         timerBecauseACorutineDoesNotWorkHere = 0;
         A = false;
+        GetPre();
     }
     private void Update()
     {
-        if(A)
+        if (A)
         {
             Go();
             FightUI.SetActive(true);
@@ -27,7 +31,7 @@ public class MainMenManager : MonoBehaviour
         PlayerPrefs.SetInt("Level", 1);
         A = true;
     }
-    public void Super ()
+    public void Super()
     {
         PlayerPrefs.SetInt("Level", 2);
         A = true;
@@ -45,15 +49,20 @@ public class MainMenManager : MonoBehaviour
     {
         SceneManager.LoadScene(sceneBuildIndex: 0);
     }
-    void Go ()
+    void Go()
     {
         if (timerBecauseACorutineDoesNotWorkHere < 2)
         {
             timerBecauseACorutineDoesNotWorkHere += 1 * Time.deltaTime;
         }
-        if(timerBecauseACorutineDoesNotWorkHere >= 1)
+        if (timerBecauseACorutineDoesNotWorkHere >= 1)
         {
             Load();
         }
+    }
+    public void GetPre()
+    {
+        Levell = PlayerPrefs.GetInt("Level");
+        gameManager.Lev = Levell;
     }
 }
