@@ -22,6 +22,9 @@ public class PlayerMovment : MonoBehaviour
     {
         horAxes = Input.GetAxis("Horizontal");
         verAxes = Input.GetAxis("Vertical");
+
+        Vector2 lookDir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        transform.up = lookDir.normalized;
     }
 
     private void FixedUpdate()
