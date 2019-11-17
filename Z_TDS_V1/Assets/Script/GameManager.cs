@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public int ZombieStartWithHelth;
     int Zombies;
     int EnLeft;
-    public int Lev;
+    int Lev;
 
     GameObject Store;
     GameObject TurretStore;
@@ -59,25 +59,22 @@ public class GameManager : MonoBehaviour
 		buildSystem = GetComponent<BuildSystem>();
         StartCoroutine(SetDay());
         DethPanel.SetActive(false);
-        FindThis();
-    }
-    void FindThis()
-    {
+        Lev = PlayerPrefs.GetInt("Level");
         if (Lev == 1)
         {
-            spawner.spawnRate = 10f;
+            spawner.spawnRate = 10;
         }
-        else if (Lev == 2)
+        if (Lev == 2)
         {
-            spawner.spawnRate = 5f;
+            spawner.spawnRate = 5;
         }
-        else if (Lev == 3)
+        if (Lev == 3)
         {
-            spawner.spawnRate = 1f;
+            spawner.spawnRate = 1;
         }
         else
         {
-            spawner.spawnRate = 10;
+            spawner.spawnRate = 1;
         }
     }
 

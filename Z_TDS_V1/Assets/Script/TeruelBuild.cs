@@ -5,9 +5,9 @@ using UnityEngine;
 public class TeruelBuild : MonoBehaviour,IBuildable
 {
 
-
     [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private Collider2D col;
+    [SerializeField] private SpriteRenderer headsSprite;
     [SerializeField] private TeruelShooting shooting;
     [SerializeField] private TeruelTargetFinder finder;
 
@@ -16,6 +16,7 @@ public class TeruelBuild : MonoBehaviour,IBuildable
     public void chengMat(Material material)
     {
         sprite.material = material;
+        headsSprite.material = material;
     }
 
     public Bounds getBounds()
@@ -26,6 +27,7 @@ public class TeruelBuild : MonoBehaviour,IBuildable
     public void OnBuild()
     {
         col.isTrigger = false;
+        headsSprite.material = myMat;
         sprite.material = myMat;
         shooting.enabled = true;
         finder.enabled = true;

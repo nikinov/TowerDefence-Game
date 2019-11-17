@@ -5,13 +5,16 @@ using UnityEngine;
 public class TeruelShooting : MonoBehaviour
 {
     private Transform target;
+    
 
     [SerializeField] private GameObject bulletInst;
+    [SerializeField] private Transform head;
     [SerializeField] private Transform firePoint;
 
     [SerializeField] private float fireRate;
 
     private float fireTimer;
+    private Vector2 direction;
 
     private void Update()
     {
@@ -19,7 +22,11 @@ public class TeruelShooting : MonoBehaviour
         {
             fireTimer += Time.deltaTime;
 
-            if(fireTimer >= fireRate)
+            direction = (target.position - firePoint.position).normalized;
+            head.up = direction;
+            //head.rotation = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg - 90f;
+
+            if (fireTimer >= fireRate)
             {
                 Shoot();
                 fireTimer = 0f;
@@ -29,7 +36,7 @@ public class TeruelShooting : MonoBehaviour
 
     private void Shoot()
     {
-        Vector2 direction = (target.position - firePoint.position).normalized;
+        
         GameObject gameObj = Instantiate(bulletInst, firePoint.position, Quaternion.Euler(direction * Vector2.up));
         Rigidbody2D bulletRb = gameObj.GetComponent<Rigidbody2D>();
 
