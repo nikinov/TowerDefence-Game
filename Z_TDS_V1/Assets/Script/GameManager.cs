@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         PlayerHelth = 10;
-        Material = 700;
+        Material = 70;
         Store = GameObject.FindGameObjectWithTag("Store");
         TurretStore = GameObject.FindGameObjectWithTag("TurretStore");
         NotEnoughCash = GameObject.FindGameObjectWithTag("NotEnoughCash");
@@ -284,7 +284,7 @@ public class GameManager : MonoBehaviour
         Day = true;
         night += 1;
         spawner.enabled = false;
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(30);
         Day = false;
         SetNight();
         spawner.enabled = true;
