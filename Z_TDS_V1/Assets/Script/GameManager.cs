@@ -30,9 +30,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject wall;
     [SerializeField] private GameObject trap;
     [SerializeField] private GameObject turet1;
+    [SerializeField] private GameObject turet2;
+    [SerializeField] private GameObject turet3;
+    [SerializeField] private GameObject turet4;
+    [SerializeField] private GameObject turet5;
+    [SerializeField] private GameObject turet6;
 
     public Text mat;
-
     public bool Day;
 
     private void Start()
@@ -73,7 +77,7 @@ public class GameManager : MonoBehaviour
             spawner.isSpawning = true;
         }
         SetNight();
-        //mat = Material.ToString("");
+        mat.text = Material.ToString("");
     }
     public void SetNight ()
     {
@@ -158,6 +162,7 @@ public class GameManager : MonoBehaviour
         if (Material - 20 >= 0)
         {
             Material -= 20;
+            buildSystem.Select(Instantiate(turet2));
         }
         else
         {
@@ -170,6 +175,7 @@ public class GameManager : MonoBehaviour
         if (Material - 50 >= 0)
         {
             Material -= 50;
+            buildSystem.Select(Instantiate(turet3));
         }
         else
         {
@@ -182,6 +188,7 @@ public class GameManager : MonoBehaviour
         if (Material - 100 >= 0)
         {
             Material -= 100;
+            buildSystem.Select(Instantiate(turet4));
         }
         else
         {
@@ -194,6 +201,7 @@ public class GameManager : MonoBehaviour
         if (Material - 200 >= 0)
         {
             Material -= 200;
+            buildSystem.Select(Instantiate(turet5));
         }
         else
         {
@@ -206,6 +214,7 @@ public class GameManager : MonoBehaviour
         if (Material - 500 >= 0)
         {
             Material -= 500;
+            buildSystem.Select(Instantiate(turet6));
         }
         else
         {
@@ -252,7 +261,7 @@ public class GameManager : MonoBehaviour
         Day = true;
         night += 1;
         spawner.enabled = false;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(10);
         Day = false;
         SetNight();
         spawner.enabled = true;

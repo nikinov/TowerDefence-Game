@@ -21,4 +21,8 @@ public class BulletScript : MonoBehaviour
         yield return new WaitForSeconds(5);
         Destroy(gameObject);
     }
+    private void Start()
+    {
+        StartCoroutine(Wait());
+    }
 }

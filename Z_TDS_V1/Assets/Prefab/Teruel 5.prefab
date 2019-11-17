@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e81ecfec7513c0245beadfed5bc4ca4b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 7728773346717728843}
   - component: {fileID: 5383385966197728956}
   m_Layer: 9
-  m_Name: Teruel
+  m_Name: Teruel 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,10 +158,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bf53f8f6b80b7549ac246824b4a1df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletInst: {fileID: 7256619904810710559, guid: efc18858fd1863f46b6f6f14970e907d,
+  bulletInst: {fileID: 7256619904810710559, guid: d8405455c28e647458e24cb491b65831,
     type: 3}
   firePoint: {fileID: 2396623498780631848}
-  fireRate: 0.5
+  fireRate: 1.2
 --- !u!114 &2396623498800155325
 MonoBehaviour:
   m_ObjectHideFlags: 0
