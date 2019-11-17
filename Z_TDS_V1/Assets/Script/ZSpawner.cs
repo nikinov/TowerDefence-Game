@@ -6,8 +6,9 @@ using Pathfinding;
 public class ZSpawner : MonoBehaviour
 {
     public float spawnRate;
+    private float spawnTimer;
 
-    public bool Go;
+    public bool isSpawning;
 
     [SerializeField] private GameObject zombieIns;
     [SerializeField] private Transform targetTransform;
@@ -16,11 +17,19 @@ public class ZSpawner : MonoBehaviour
 
     private void Start()
     {
-        Go = false;
         bounds = gameObject.GetComponent<BoxCollider2D>().bounds;
-        if (Go == true)
+    }
+
+    private void Update()
+    {
+        if (isSpawning)
         {
-            InvokeRepeating("Spawn", 1f, spawnRate);
+            spawnTimer += Time.deltaTime;
+            if(spawnTimer >= spawnRate)
+            {
+                Spawn();
+                spawnTimer = 0f;
+            }
         }
     }
 

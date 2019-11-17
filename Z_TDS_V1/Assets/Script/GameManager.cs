@@ -229,13 +229,13 @@ public class GameManager : MonoBehaviour
         night = 1;
         yield return new WaitForSeconds(5);
         Day = false;
-        spawner.Go = false;
+        spawner.isSpawning = false;
         Spawnerr.SetActive(false);
         yield return new WaitForEndOfFrame();
         Day = false;
         Spawn2();
         yield return new WaitForSeconds((2^night + 1) * 10);
-        spawner.Go = true;
+        spawner.isSpawning = true;
         Spawnerr.SetActive(true);
 
         if (Day)

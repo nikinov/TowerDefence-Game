@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Zombie : MonoBehaviour
+public class Zombie : MonoBehaviour,IHitable
 {
-    int MyHelth;
+    float MyHelth;
     GameManager gameManager;
     public GameObject GaMan;
 
@@ -53,9 +53,16 @@ public class Zombie : MonoBehaviour
             Destroy(gameObject);
             gameManager.addMat();
         }
-        if (col.gameObject.tag == "Player")
-        {
-            gameManager.TakePlayerHelth();
-        }
+    }
+
+    public void Hit(float dam)
+    {
+        MyHelth -= dam;
+        if (MyHelth < 0) Destroy(gameObject);
+    }
+
+    public float getHp()
+    {
+        return MyHelth;
     }
 }
