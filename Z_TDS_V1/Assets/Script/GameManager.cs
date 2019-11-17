@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     private BuildSystem buildSystem;
     [SerializeField] private GameObject wall;
     [SerializeField] private GameObject trap;
+    [SerializeField] private GameObject teruel;
 
     bool Day;
 
@@ -122,6 +123,7 @@ public class GameManager : MonoBehaviour
         if (Material - 10 >= 0)
         {
             Material -= 10;
+            buildSystem.Select(Instantiate(teruel));
         }
         else
         {
