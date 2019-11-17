@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     int Material;
     int night;
-    int PlayerHelth;
+    public int PlayerHelth;
     public int ZombieStartWithHelth;
     int Zombies;
     int EnLeft;
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject trap;
     [SerializeField] private GameObject teruel;
 
-    bool Day;
+    public bool Day;
 
     private void Start()
     {
@@ -49,16 +49,15 @@ public class GameManager : MonoBehaviour
         TurretCloseButton.SetActive(false);
 		buildSystem = GetComponent<BuildSystem>();
         StartCoroutine(SetDay());
-        Spawnerr.SetActive(false);
         DethPanel.SetActive(false);
     }
 
     private void Update()
     {
         Enemy = GameObject.FindGameObjectsWithTag("Enemy");
+        EnLeft = 0;
         foreach (GameObject en in Enemy)
         {
-            EnLeft = 0;
             EnLeft += 1;
         }
         if (Day)
@@ -68,6 +67,7 @@ public class GameManager : MonoBehaviour
         if (!Day)
         {
             Nightt.SetActive(true);
+            spawner.isSpawning = true;
         }
     }
     public void SetNight ()
@@ -228,18 +228,23 @@ public class GameManager : MonoBehaviour
     IEnumerator SetDay()
     {
         Day = true;
-        night = 1;
+        night += 1;
+        spawner.enabled = true;
         yield return new WaitForSeconds(5);
         Day = false;
-        spawner.isSpawning = false;
-        Spawnerr.SetActive(false);
-        yield return new WaitForEndOfFrame();
-        Day = false;
-        Spawn2();
-        yield return new WaitForSeconds((2^night + 1) * 10);
         spawner.isSpawning = true;
-        Spawnerr.SetActive(true);
-
+        yield return new WaitForSeconds(20);
+        spawner.enabled = false;
+        StartCoroutine(Check());
+    }
+    IEnumerator Check()
+    {
+        Spawn2();
+        yield return new WaitForSeconds(.1f);
+        if (!Day)
+        {
+            StartCoroutine(Check());
+        }
         if (Day)
         {
             StartCoroutine(SetDay());

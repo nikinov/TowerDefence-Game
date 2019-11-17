@@ -758,10 +758,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3026098823071646298, guid: fac3be0a5ecf2164cbe352dfa890c115,
+        type: 3}
+      propertyPath: GaMan
+      value: 
+      objectReference: {fileID: 742791914}
     - target: {fileID: 1606437541109629260, guid: fac3be0a5ecf2164cbe352dfa890c115,
         type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1606437541109629260, guid: fac3be0a5ecf2164cbe352dfa890c115,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1606437541109629249, guid: fac3be0a5ecf2164cbe352dfa890c115,
         type: 3}
@@ -1719,6 +1729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ece8a9a3ed3f45f3a577f3f920c8fb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerHelth: 0
   ZombieStartWithHelth: 0
   TurretOpenButton: {fileID: 9182833265877835655}
   TurretCloseButton: {fileID: 394029426}
@@ -1728,6 +1739,7 @@ MonoBehaviour:
   wall: {fileID: 3725867472618585467, guid: c51d44a3ff2c64a4489123f8bc305247, type: 3}
   trap: {fileID: 6967696803747868454, guid: 95ff60d585d5a4fcd8dc2dd0f8e1d47c, type: 3}
   teruel: {fileID: 2396623498800155322, guid: 23d0d0fdeafa88f408270d4b176cf6e9, type: 3}
+  Day: 0
 --- !u!4 &742791916
 Transform:
   m_ObjectHideFlags: 0
@@ -1850,7 +1862,7 @@ GameObject:
   - component: {fileID: 831021701}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
