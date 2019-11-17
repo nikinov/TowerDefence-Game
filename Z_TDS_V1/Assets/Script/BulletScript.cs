@@ -12,4 +12,13 @@ public class BulletScript : MonoBehaviour
         if (hitable != null) hitable.Hit(damage);
         Destroy(gameObject);
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        StartCoroutine(Wait());
+    }
+    IEnumerator Wait ()
+    {
+        yield return new WaitForSeconds(5);
+        Destroy(gameObject);
+    }
 }

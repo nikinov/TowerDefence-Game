@@ -161,7 +161,7 @@ MonoBehaviour:
   bulletInst: {fileID: 7256619904810710559, guid: efc18858fd1863f46b6f6f14970e907d,
     type: 3}
   firePoint: {fileID: 2396623498780631848}
-  fireRate: 1
+  fireRate: 0.1
 --- !u!114 &2396623498800155325
 MonoBehaviour:
   m_ObjectHideFlags: 0

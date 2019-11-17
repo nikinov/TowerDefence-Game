@@ -83,20 +83,20 @@ public class GameManager : MonoBehaviour
     {
         if (night < 4)
         {
-            Material += 1;
+            Material += 2;
         }
         if (night < 10)
         {
             if (night >= 4)
             {
-                Material += 2;
+                Material += 5;
             }
         }
         if (night < 20)
         {
             if (night >= 10)
             {
-                Material += 3;
+                Material += 10;
             }
         }
     }
@@ -254,6 +254,7 @@ public class GameManager : MonoBehaviour
         spawner.enabled = false;
         yield return new WaitForSeconds(5);
         Day = false;
+        SetNight();
         spawner.enabled = true;
         spawner.isSpawning = true;
         yield return new WaitForSeconds(night * 20);

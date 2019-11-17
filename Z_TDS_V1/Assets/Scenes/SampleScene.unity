@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f57a9f6d47e1944bbb539677d614eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 1
+  spawnRate: 5
   isSpawning: 0
   zombieIns: {fileID: 1606437541109629260, guid: fac3be0a5ecf2164cbe352dfa890c115,
     type: 3}
