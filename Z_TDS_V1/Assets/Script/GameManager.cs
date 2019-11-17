@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
         PauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
         player = GameObject.FindGameObjectWithTag("Player");
         DethPanel = GameObject.FindGameObjectWithTag("DethPanel");
+        gamePanel = GameObject.FindGameObjectWithTag("GamePanel");
 
         NotEnoughCash.SetActive(false);
         PauseMenu.SetActive(false);
@@ -161,11 +162,13 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0f;
         PauseMenu.SetActive(true);
+        gamePanel.SetActive(false);
     }
     public void ResumeGame ()
     {
         Time.timeScale = 1f;
         PauseMenu.SetActive(false);
+        gamePanel.SetActive(true);
     }
     public void BuyTurret1()
     {
