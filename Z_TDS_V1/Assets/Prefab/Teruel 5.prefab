@@ -123,6 +123,8 @@ GameObject:
   - component: {fileID: 2396623498800155325}
   - component: {fileID: 7728773346717728843}
   - component: {fileID: 8189260807009127150}
+  - component: {fileID: -6163902202799752799}
+  - component: {fileID: -18797668567203055}
   m_Layer: 9
   m_Name: Teruel 5
   m_TagString: Untagged
@@ -215,6 +217,30 @@ MonoBehaviour:
   headsSprite: {fileID: 3198992179242762095}
   shooting: {fileID: 2396623498800155324}
   finder: {fileID: 2396623498800155325}
+--- !u!114 &-6163902202799752799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2396623498800155322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 522316079108e4bdaaeece7bd1eba454, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-18797668567203055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2396623498800155322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 296e7d97f64de496fa047261d69422b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2607914093039851686
 GameObject:
   m_ObjectHideFlags: 0
