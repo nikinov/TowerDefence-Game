@@ -65,15 +65,15 @@ public class GameManager : MonoBehaviour
     {
         if (Lev == 1)
         {
-            spawner.spawnRate = 10;
+            spawner.spawnRate = 10f;
         }
-        if (Lev == 2)
+        else if (Lev == 2)
         {
-            spawner.spawnRate = 5;
+            spawner.spawnRate = 5f;
         }
-        if (Lev == 3)
+        else if (Lev == 3)
         {
-            spawner.spawnRate = 1;
+            spawner.spawnRate = 1f;
         }
         else
         {
@@ -285,7 +285,6 @@ public class GameManager : MonoBehaviour
         night += 1;
         spawner.enabled = false;
         yield return new WaitForSeconds(10);
-        FindThis();
         Day = false;
         SetNight();
         spawner.enabled = true;
