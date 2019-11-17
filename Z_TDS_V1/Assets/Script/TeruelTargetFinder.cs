@@ -8,6 +8,7 @@ public class TeruelTargetFinder : MonoBehaviour
 
     public float rangeRadius;
     public LayerMask enemyMask;
+    public LayerMask obsticleMasks;
 
     void Start()
     {
@@ -26,7 +27,7 @@ public class TeruelTargetFinder : MonoBehaviour
 
         Transform closest = null;
         float minDist = rangeRadius;
-        Debug.Log(col.Length + " - Enemys");
+
         foreach(Collider2D collider in col){
 
             IHitable hitable = collider.gameObject.GetComponent<IHitable>();
@@ -35,8 +36,15 @@ public class TeruelTargetFinder : MonoBehaviour
                 float dst = Vector2.Distance(collider.transform.position, transform.position);
                 if(minDist > dst)
                 {
-                    RaycastHit2D hit = Physics2D.Raycast(transform.position,collider.transform.position - transform.position, dst, enemyMask);
-                    if (hit) continue;
+                    RaycastHit2D hit = Physics2D.Raycast(transform.position,collider.transform.position - transform.position, dst, obsticleMasks);
+                    if (hit)
+                    {
+                        Debug.Log("hit");
+                        if (hit.collider != collider) {
+                            Debug.Log(hit.collider.name);
+                            continue;
+                        }
+                    }
                     minDist = dst;
                     closest = collider.transform;
                 }
@@ -44,7 +52,6 @@ public class TeruelTargetFinder : MonoBehaviour
 
         }
 
-        
         shooting.SetTarget(closest);
 
     }

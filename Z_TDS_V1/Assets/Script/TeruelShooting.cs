@@ -17,7 +17,6 @@ public class TeruelShooting : MonoBehaviour
     {
         if (target != null)
         {
-            Debug.Log("in");
             fireTimer += Time.deltaTime;
 
             if(fireTimer >= fireRate)
