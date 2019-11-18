@@ -12,10 +12,24 @@ public class TurretDes4 : MonoBehaviour
     }
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(25);
         if (col.gameObject.tag == "Enemy")
         {
             Destroy(gameObject);
         }
     }
+
+
+    //movement
+    int a;
+    int b;
+    //Save movement
+    int c;
+    int d;
+    //MainMenu
+    int coins;
+    int Level;
+    //MainMenu
+    int coins1;
+    int Level1;
 }

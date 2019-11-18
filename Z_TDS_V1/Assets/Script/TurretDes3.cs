@@ -12,7 +12,7 @@ public class TurretDes3 : MonoBehaviour
     }
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(20);
         if (col.gameObject.tag == "Enemy")
         {
             Destroy(gameObject);
